@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+    ">
+
+    <bean id="tyre1Bean" class="com.example.TypeOfDI.Tyre">
+        <property name="name" value="WorldTreader">
+        </property>
+
+        <property name="place" value="India">
+        </property>
+
+        <property name="company" value="MRF">
+        </property>
+    </bean>
+    <bean id="ToyotaBean" class="com.example.TypeOfDI.AudiEngine">
+        <property name="company" value="Audi">
+        </property>
+
+        <property name="cost" value="300000.00">
+        </property>
+        <property name="type" value="V8">
+        </property>
+
+        <property name="chasis" value="12332131">
+        </property>
+
+
+    </bean>
+
+    <bean id="tyre2Bean" class="com.example.TypeOfDI.Tyre">
+        <property name="name" value="TVS">
+        </property>
+
+        <property name="place" value="India">
+        </property>
+
+        <property name="company" value="Ceat">
+        </property>
+    </bean>
+        <bean id="InjectwithSetter" class="com.example.TypeOfDI.AudiR8">
+        <property name="e" ref="ToyotaBean">
+        </property>
+
+        <property name="t" ref="tyre1Bean">
+        </property>
+
+    </bean>
+
+    <bean id="InjectwithConstructor" class="com.example.TypeOfDI.AudiR8">
+        <constructor-arg name="a1" ref="ToyotaBean">
+    </constructor-arg>
+
+    <constructor-arg name="t1" ref="tyre2Bean">
+</constructor-arg>
+
+        </bean>
+
+    <context:annotation-config/>
+</beans>
